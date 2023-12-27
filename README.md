@@ -1,4 +1,6 @@
-# 
+Parser implentado en automatas deterministicos minimizados y la libreria Ply-yacc hecho como proyecto final de la materia:  Teoria de Lenguajes
+
+
 ### Pasos previos
 
 1. (Opcional) Crear un entorno virtual de Python:
