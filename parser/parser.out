@@ -1,0 +1,645 @@
+Created by PLY (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> rprima
+Rule 1     rprima -> <empty>
+Rule 2     rprima -> CORA CORC
+Rule 3     rprima -> rgenerador
+Rule 4     rgenerador -> rgenerador UNION aconcatados
+Rule 5     rgenerador -> aconcatados
+Rule 6     aconcatados -> balores
+Rule 7     aconcatados -> aconcatados balores
+Rule 8     balores -> chars sym
+Rule 9     balores -> chars
+Rule 10    sym -> SYMBOL
+Rule 11    sym -> LLAVENUMLLAVE
+Rule 12    sym -> LLAVENUMNUMLLAVE
+Rule 13    chars -> DE
+Rule 14    chars -> DOBLEV
+Rule 15    chars -> valor
+Rule 16    chars -> PARA rprima PARC
+Rule 17    chars -> CORA unboxing CORC
+Rule 18    unboxing -> valor
+Rule 19    unboxing -> valor unboxing
+Rule 20    valor -> NUM
+Rule 21    valor -> CHAR
+Rule 22    valor -> GUION
+Rule 23    valor -> RESERVADO
+
+Terminals, with rules where they appear
+
+CHAR                 : 21
+CORA                 : 2 17
+CORC                 : 2 17
+DE                   : 13
+DOBLEV               : 14
+GUION                : 22
+LLAVENUMLLAVE        : 11
+LLAVENUMNUMLLAVE     : 12
+NUM                  : 20
+PARA                 : 16
+PARC                 : 16
+RESERVADO            : 23
+SYMBOL               : 10
+UNION                : 4
+error                : 
+
+Nonterminals, with rules where they appear
+
+aconcatados          : 4 5 7
+balores              : 6 7
+chars                : 8 9
+rgenerador           : 3 4
+rprima               : 16 0
+sym                  : 8
+unboxing             : 17 19
+valor                : 15 18 19
+
+
+state 0
+
+    (0) S' -> . rprima
+    (1) rprima -> .
+    (2) rprima -> . CORA CORC
+    (3) rprima -> . rgenerador
+    (4) rgenerador -> . rgenerador UNION aconcatados
+    (5) rgenerador -> . aconcatados
+    (6) aconcatados -> . balores
+    (7) aconcatados -> . aconcatados balores
+    (8) balores -> . chars sym
+    (9) balores -> . chars
+    (13) chars -> . DE
+    (14) chars -> . DOBLEV
+    (15) chars -> . valor
+    (16) chars -> . PARA rprima PARC
+    (17) chars -> . CORA unboxing CORC
+    (20) valor -> . NUM
+    (21) valor -> . CHAR
+    (22) valor -> . GUION
+    (23) valor -> . RESERVADO
+
+    $end            reduce using rule 1 (rprima -> .)
+    CORA            shift and go to state 2
+    DE              shift and go to state 7
+    DOBLEV          shift and go to state 8
+    PARA            shift and go to state 10
+    NUM             shift and go to state 11
+    CHAR            shift and go to state 12
+    GUION           shift and go to state 13
+    RESERVADO       shift and go to state 14
+
+    rprima                         shift and go to state 1
+    rgenerador                     shift and go to state 3
+    aconcatados                    shift and go to state 4
+    balores                        shift and go to state 5
+    chars                          shift and go to state 6
+    valor                          shift and go to state 9
+
+state 1
+
+    (0) S' -> rprima .
+
+
+
+state 2
+
+    (2) rprima -> CORA . CORC
+    (17) chars -> CORA . unboxing CORC
+    (18) unboxing -> . valor
+    (19) unboxing -> . valor unboxing
+    (20) valor -> . NUM
+    (21) valor -> . CHAR
+    (22) valor -> . GUION
+    (23) valor -> . RESERVADO
+
+    CORC            shift and go to state 15
+    NUM             shift and go to state 11
+    CHAR            shift and go to state 12
+    GUION           shift and go to state 13
+    RESERVADO       shift and go to state 14
+
+    unboxing                       shift and go to state 16
+    valor                          shift and go to state 17
+
+state 3
+
+    (3) rprima -> rgenerador .
+    (4) rgenerador -> rgenerador . UNION aconcatados
+
+    $end            reduce using rule 3 (rprima -> rgenerador .)
+    PARC            reduce using rule 3 (rprima -> rgenerador .)
+    UNION           shift and go to state 18
+
+
+state 4
+
+    (5) rgenerador -> aconcatados .
+    (7) aconcatados -> aconcatados . balores
+    (8) balores -> . chars sym
+    (9) balores -> . chars
+    (13) chars -> . DE
+    (14) chars -> . DOBLEV
+    (15) chars -> . valor
+    (16) chars -> . PARA rprima PARC
+    (17) chars -> . CORA unboxing CORC
+    (20) valor -> . NUM
+    (21) valor -> . CHAR
+    (22) valor -> . GUION
+    (23) valor -> . RESERVADO
+
+    UNION           reduce using rule 5 (rgenerador -> aconcatados .)
+    $end            reduce using rule 5 (rgenerador -> aconcatados .)
+    PARC            reduce using rule 5 (rgenerador -> aconcatados .)
+    DE              shift and go to state 7
+    DOBLEV          shift and go to state 8
+    PARA            shift and go to state 10
+    CORA            shift and go to state 20
+    NUM             shift and go to state 11
+    CHAR            shift and go to state 12
+    GUION           shift and go to state 13
+    RESERVADO       shift and go to state 14
+
+    balores                        shift and go to state 19
+    chars                          shift and go to state 6
+    valor                          shift and go to state 9
+
+state 5
+
+    (6) aconcatados -> balores .
+
+    DE              reduce using rule 6 (aconcatados -> balores .)
+    DOBLEV          reduce using rule 6 (aconcatados -> balores .)
+    PARA            reduce using rule 6 (aconcatados -> balores .)
+    CORA            reduce using rule 6 (aconcatados -> balores .)
+    NUM             reduce using rule 6 (aconcatados -> balores .)
+    CHAR            reduce using rule 6 (aconcatados -> balores .)
+    GUION           reduce using rule 6 (aconcatados -> balores .)
+    RESERVADO       reduce using rule 6 (aconcatados -> balores .)
+    UNION           reduce using rule 6 (aconcatados -> balores .)
+    $end            reduce using rule 6 (aconcatados -> balores .)
+    PARC            reduce using rule 6 (aconcatados -> balores .)
+
+
+state 6
+
+    (8) balores -> chars . sym
+    (9) balores -> chars .
+    (10) sym -> . SYMBOL
+    (11) sym -> . LLAVENUMLLAVE
+    (12) sym -> . LLAVENUMNUMLLAVE
+
+    DE              reduce using rule 9 (balores -> chars .)
+    DOBLEV          reduce using rule 9 (balores -> chars .)
+    PARA            reduce using rule 9 (balores -> chars .)
+    CORA            reduce using rule 9 (balores -> chars .)
+    NUM             reduce using rule 9 (balores -> chars .)
+    CHAR            reduce using rule 9 (balores -> chars .)
+    GUION           reduce using rule 9 (balores -> chars .)
+    RESERVADO       reduce using rule 9 (balores -> chars .)
+    UNION           reduce using rule 9 (balores -> chars .)
+    $end            reduce using rule 9 (balores -> chars .)
+    PARC            reduce using rule 9 (balores -> chars .)
+    SYMBOL          shift and go to state 22
+    LLAVENUMLLAVE   shift and go to state 23
+    LLAVENUMNUMLLAVE shift and go to state 24
+
+    sym                            shift and go to state 21
+
+state 7
+
+    (13) chars -> DE .
+
+    SYMBOL          reduce using rule 13 (chars -> DE .)
+    LLAVENUMLLAVE   reduce using rule 13 (chars -> DE .)
+    LLAVENUMNUMLLAVE reduce using rule 13 (chars -> DE .)
+    DE              reduce using rule 13 (chars -> DE .)
+    DOBLEV          reduce using rule 13 (chars -> DE .)
+    PARA            reduce using rule 13 (chars -> DE .)
+    CORA            reduce using rule 13 (chars -> DE .)
+    NUM             reduce using rule 13 (chars -> DE .)
+    CHAR            reduce using rule 13 (chars -> DE .)
+    GUION           reduce using rule 13 (chars -> DE .)
+    RESERVADO       reduce using rule 13 (chars -> DE .)
+    UNION           reduce using rule 13 (chars -> DE .)
+    $end            reduce using rule 13 (chars -> DE .)
+    PARC            reduce using rule 13 (chars -> DE .)
+
+
+state 8
+
+    (14) chars -> DOBLEV .
+
+    SYMBOL          reduce using rule 14 (chars -> DOBLEV .)
+    LLAVENUMLLAVE   reduce using rule 14 (chars -> DOBLEV .)
+    LLAVENUMNUMLLAVE reduce using rule 14 (chars -> DOBLEV .)
+    DE              reduce using rule 14 (chars -> DOBLEV .)
+    DOBLEV          reduce using rule 14 (chars -> DOBLEV .)
+    PARA            reduce using rule 14 (chars -> DOBLEV .)
+    CORA            reduce using rule 14 (chars -> DOBLEV .)
+    NUM             reduce using rule 14 (chars -> DOBLEV .)
+    CHAR            reduce using rule 14 (chars -> DOBLEV .)
+    GUION           reduce using rule 14 (chars -> DOBLEV .)
+    RESERVADO       reduce using rule 14 (chars -> DOBLEV .)
+    UNION           reduce using rule 14 (chars -> DOBLEV .)
+    $end            reduce using rule 14 (chars -> DOBLEV .)
+    PARC            reduce using rule 14 (chars -> DOBLEV .)
+
+
+state 9
+
+    (15) chars -> valor .
+
+    SYMBOL          reduce using rule 15 (chars -> valor .)
+    LLAVENUMLLAVE   reduce using rule 15 (chars -> valor .)
+    LLAVENUMNUMLLAVE reduce using rule 15 (chars -> valor .)
+    DE              reduce using rule 15 (chars -> valor .)
+    DOBLEV          reduce using rule 15 (chars -> valor .)
+    PARA            reduce using rule 15 (chars -> valor .)
+    CORA            reduce using rule 15 (chars -> valor .)
+    NUM             reduce using rule 15 (chars -> valor .)
+    CHAR            reduce using rule 15 (chars -> valor .)
+    GUION           reduce using rule 15 (chars -> valor .)
+    RESERVADO       reduce using rule 15 (chars -> valor .)
+    UNION           reduce using rule 15 (chars -> valor .)
+    $end            reduce using rule 15 (chars -> valor .)
+    PARC            reduce using rule 15 (chars -> valor .)
+
+
+state 10
+
+    (16) chars -> PARA . rprima PARC
+    (1) rprima -> .
+    (2) rprima -> . CORA CORC
+    (3) rprima -> . rgenerador
+    (4) rgenerador -> . rgenerador UNION aconcatados
+    (5) rgenerador -> . aconcatados
+    (6) aconcatados -> . balores
+    (7) aconcatados -> . aconcatados balores
+    (8) balores -> . chars sym
+    (9) balores -> . chars
+    (13) chars -> . DE
+    (14) chars -> . DOBLEV
+    (15) chars -> . valor
+    (16) chars -> . PARA rprima PARC
+    (17) chars -> . CORA unboxing CORC
+    (20) valor -> . NUM
+    (21) valor -> . CHAR
+    (22) valor -> . GUION
+    (23) valor -> . RESERVADO
+
+    PARC            reduce using rule 1 (rprima -> .)
+    CORA            shift and go to state 2
+    DE              shift and go to state 7
+    DOBLEV          shift and go to state 8
+    PARA            shift and go to state 10
+    NUM             shift and go to state 11
+    CHAR            shift and go to state 12
+    GUION           shift and go to state 13
+    RESERVADO       shift and go to state 14
+
+    rprima                         shift and go to state 25
+    rgenerador                     shift and go to state 3
+    aconcatados                    shift and go to state 4
+    balores                        shift and go to state 5
+    chars                          shift and go to state 6
+    valor                          shift and go to state 9
+
+state 11
+
+    (20) valor -> NUM .
+
+    SYMBOL          reduce using rule 20 (valor -> NUM .)
+    LLAVENUMLLAVE   reduce using rule 20 (valor -> NUM .)
+    LLAVENUMNUMLLAVE reduce using rule 20 (valor -> NUM .)
+    DE              reduce using rule 20 (valor -> NUM .)
+    DOBLEV          reduce using rule 20 (valor -> NUM .)
+    PARA            reduce using rule 20 (valor -> NUM .)
+    CORA            reduce using rule 20 (valor -> NUM .)
+    NUM             reduce using rule 20 (valor -> NUM .)
+    CHAR            reduce using rule 20 (valor -> NUM .)
+    GUION           reduce using rule 20 (valor -> NUM .)
+    RESERVADO       reduce using rule 20 (valor -> NUM .)
+    UNION           reduce using rule 20 (valor -> NUM .)
+    $end            reduce using rule 20 (valor -> NUM .)
+    CORC            reduce using rule 20 (valor -> NUM .)
+    PARC            reduce using rule 20 (valor -> NUM .)
+
+
+state 12
+
+    (21) valor -> CHAR .
+
+    SYMBOL          reduce using rule 21 (valor -> CHAR .)
+    LLAVENUMLLAVE   reduce using rule 21 (valor -> CHAR .)
+    LLAVENUMNUMLLAVE reduce using rule 21 (valor -> CHAR .)
+    DE              reduce using rule 21 (valor -> CHAR .)
+    DOBLEV          reduce using rule 21 (valor -> CHAR .)
+    PARA            reduce using rule 21 (valor -> CHAR .)
+    CORA            reduce using rule 21 (valor -> CHAR .)
+    NUM             reduce using rule 21 (valor -> CHAR .)
+    CHAR            reduce using rule 21 (valor -> CHAR .)
+    GUION           reduce using rule 21 (valor -> CHAR .)
+    RESERVADO       reduce using rule 21 (valor -> CHAR .)
+    UNION           reduce using rule 21 (valor -> CHAR .)
+    $end            reduce using rule 21 (valor -> CHAR .)
+    CORC            reduce using rule 21 (valor -> CHAR .)
+    PARC            reduce using rule 21 (valor -> CHAR .)
+
+
+state 13
+
+    (22) valor -> GUION .
+
+    SYMBOL          reduce using rule 22 (valor -> GUION .)
+    LLAVENUMLLAVE   reduce using rule 22 (valor -> GUION .)
+    LLAVENUMNUMLLAVE reduce using rule 22 (valor -> GUION .)
+    DE              reduce using rule 22 (valor -> GUION .)
+    DOBLEV          reduce using rule 22 (valor -> GUION .)
+    PARA            reduce using rule 22 (valor -> GUION .)
+    CORA            reduce using rule 22 (valor -> GUION .)
+    NUM             reduce using rule 22 (valor -> GUION .)
+    CHAR            reduce using rule 22 (valor -> GUION .)
+    GUION           reduce using rule 22 (valor -> GUION .)
+    RESERVADO       reduce using rule 22 (valor -> GUION .)
+    UNION           reduce using rule 22 (valor -> GUION .)
+    $end            reduce using rule 22 (valor -> GUION .)
+    CORC            reduce using rule 22 (valor -> GUION .)
+    PARC            reduce using rule 22 (valor -> GUION .)
+
+
+state 14
+
+    (23) valor -> RESERVADO .
+
+    SYMBOL          reduce using rule 23 (valor -> RESERVADO .)
+    LLAVENUMLLAVE   reduce using rule 23 (valor -> RESERVADO .)
+    LLAVENUMNUMLLAVE reduce using rule 23 (valor -> RESERVADO .)
+    DE              reduce using rule 23 (valor -> RESERVADO .)
+    DOBLEV          reduce using rule 23 (valor -> RESERVADO .)
+    PARA            reduce using rule 23 (valor -> RESERVADO .)
+    CORA            reduce using rule 23 (valor -> RESERVADO .)
+    NUM             reduce using rule 23 (valor -> RESERVADO .)
+    CHAR            reduce using rule 23 (valor -> RESERVADO .)
+    GUION           reduce using rule 23 (valor -> RESERVADO .)
+    RESERVADO       reduce using rule 23 (valor -> RESERVADO .)
+    UNION           reduce using rule 23 (valor -> RESERVADO .)
+    $end            reduce using rule 23 (valor -> RESERVADO .)
+    CORC            reduce using rule 23 (valor -> RESERVADO .)
+    PARC            reduce using rule 23 (valor -> RESERVADO .)
+
+
+state 15
+
+    (2) rprima -> CORA CORC .
+
+    $end            reduce using rule 2 (rprima -> CORA CORC .)
+    PARC            reduce using rule 2 (rprima -> CORA CORC .)
+
+
+state 16
+
+    (17) chars -> CORA unboxing . CORC
+
+    CORC            shift and go to state 26
+
+
+state 17
+
+    (18) unboxing -> valor .
+    (19) unboxing -> valor . unboxing
+    (18) unboxing -> . valor
+    (19) unboxing -> . valor unboxing
+    (20) valor -> . NUM
+    (21) valor -> . CHAR
+    (22) valor -> . GUION
+    (23) valor -> . RESERVADO
+
+    CORC            reduce using rule 18 (unboxing -> valor .)
+    NUM             shift and go to state 11
+    CHAR            shift and go to state 12
+    GUION           shift and go to state 13
+    RESERVADO       shift and go to state 14
+
+    valor                          shift and go to state 17
+    unboxing                       shift and go to state 27
+
+state 18
+
+    (4) rgenerador -> rgenerador UNION . aconcatados
+    (6) aconcatados -> . balores
+    (7) aconcatados -> . aconcatados balores
+    (8) balores -> . chars sym
+    (9) balores -> . chars
+    (13) chars -> . DE
+    (14) chars -> . DOBLEV
+    (15) chars -> . valor
+    (16) chars -> . PARA rprima PARC
+    (17) chars -> . CORA unboxing CORC
+    (20) valor -> . NUM
+    (21) valor -> . CHAR
+    (22) valor -> . GUION
+    (23) valor -> . RESERVADO
+
+    DE              shift and go to state 7
+    DOBLEV          shift and go to state 8
+    PARA            shift and go to state 10
+    CORA            shift and go to state 20
+    NUM             shift and go to state 11
+    CHAR            shift and go to state 12
+    GUION           shift and go to state 13
+    RESERVADO       shift and go to state 14
+
+    aconcatados                    shift and go to state 28
+    balores                        shift and go to state 5
+    chars                          shift and go to state 6
+    valor                          shift and go to state 9
+
+state 19
+
+    (7) aconcatados -> aconcatados balores .
+
+    DE              reduce using rule 7 (aconcatados -> aconcatados balores .)
+    DOBLEV          reduce using rule 7 (aconcatados -> aconcatados balores .)
+    PARA            reduce using rule 7 (aconcatados -> aconcatados balores .)
+    CORA            reduce using rule 7 (aconcatados -> aconcatados balores .)
+    NUM             reduce using rule 7 (aconcatados -> aconcatados balores .)
+    CHAR            reduce using rule 7 (aconcatados -> aconcatados balores .)
+    GUION           reduce using rule 7 (aconcatados -> aconcatados balores .)
+    RESERVADO       reduce using rule 7 (aconcatados -> aconcatados balores .)
+    UNION           reduce using rule 7 (aconcatados -> aconcatados balores .)
+    $end            reduce using rule 7 (aconcatados -> aconcatados balores .)
+    PARC            reduce using rule 7 (aconcatados -> aconcatados balores .)
+
+
+state 20
+
+    (17) chars -> CORA . unboxing CORC
+    (18) unboxing -> . valor
+    (19) unboxing -> . valor unboxing
+    (20) valor -> . NUM
+    (21) valor -> . CHAR
+    (22) valor -> . GUION
+    (23) valor -> . RESERVADO
+
+    NUM             shift and go to state 11
+    CHAR            shift and go to state 12
+    GUION           shift and go to state 13
+    RESERVADO       shift and go to state 14
+
+    unboxing                       shift and go to state 16
+    valor                          shift and go to state 17
+
+state 21
+
+    (8) balores -> chars sym .
+
+    DE              reduce using rule 8 (balores -> chars sym .)
+    DOBLEV          reduce using rule 8 (balores -> chars sym .)
+    PARA            reduce using rule 8 (balores -> chars sym .)
+    CORA            reduce using rule 8 (balores -> chars sym .)
+    NUM             reduce using rule 8 (balores -> chars sym .)
+    CHAR            reduce using rule 8 (balores -> chars sym .)
+    GUION           reduce using rule 8 (balores -> chars sym .)
+    RESERVADO       reduce using rule 8 (balores -> chars sym .)
+    UNION           reduce using rule 8 (balores -> chars sym .)
+    $end            reduce using rule 8 (balores -> chars sym .)
+    PARC            reduce using rule 8 (balores -> chars sym .)
+
+
+state 22
+
+    (10) sym -> SYMBOL .
+
+    DE              reduce using rule 10 (sym -> SYMBOL .)
+    DOBLEV          reduce using rule 10 (sym -> SYMBOL .)
+    PARA            reduce using rule 10 (sym -> SYMBOL .)
+    CORA            reduce using rule 10 (sym -> SYMBOL .)
+    NUM             reduce using rule 10 (sym -> SYMBOL .)
+    CHAR            reduce using rule 10 (sym -> SYMBOL .)
+    GUION           reduce using rule 10 (sym -> SYMBOL .)
+    RESERVADO       reduce using rule 10 (sym -> SYMBOL .)
+    UNION           reduce using rule 10 (sym -> SYMBOL .)
+    $end            reduce using rule 10 (sym -> SYMBOL .)
+    PARC            reduce using rule 10 (sym -> SYMBOL .)
+
+
+state 23
+
+    (11) sym -> LLAVENUMLLAVE .
+
+    DE              reduce using rule 11 (sym -> LLAVENUMLLAVE .)
+    DOBLEV          reduce using rule 11 (sym -> LLAVENUMLLAVE .)
+    PARA            reduce using rule 11 (sym -> LLAVENUMLLAVE .)
+    CORA            reduce using rule 11 (sym -> LLAVENUMLLAVE .)
+    NUM             reduce using rule 11 (sym -> LLAVENUMLLAVE .)
+    CHAR            reduce using rule 11 (sym -> LLAVENUMLLAVE .)
+    GUION           reduce using rule 11 (sym -> LLAVENUMLLAVE .)
+    RESERVADO       reduce using rule 11 (sym -> LLAVENUMLLAVE .)
+    UNION           reduce using rule 11 (sym -> LLAVENUMLLAVE .)
+    $end            reduce using rule 11 (sym -> LLAVENUMLLAVE .)
+    PARC            reduce using rule 11 (sym -> LLAVENUMLLAVE .)
+
+
+state 24
+
+    (12) sym -> LLAVENUMNUMLLAVE .
+
+    DE              reduce using rule 12 (sym -> LLAVENUMNUMLLAVE .)
+    DOBLEV          reduce using rule 12 (sym -> LLAVENUMNUMLLAVE .)
+    PARA            reduce using rule 12 (sym -> LLAVENUMNUMLLAVE .)
+    CORA            reduce using rule 12 (sym -> LLAVENUMNUMLLAVE .)
+    NUM             reduce using rule 12 (sym -> LLAVENUMNUMLLAVE .)
+    CHAR            reduce using rule 12 (sym -> LLAVENUMNUMLLAVE .)
+    GUION           reduce using rule 12 (sym -> LLAVENUMNUMLLAVE .)
+    RESERVADO       reduce using rule 12 (sym -> LLAVENUMNUMLLAVE .)
+    UNION           reduce using rule 12 (sym -> LLAVENUMNUMLLAVE .)
+    $end            reduce using rule 12 (sym -> LLAVENUMNUMLLAVE .)
+    PARC            reduce using rule 12 (sym -> LLAVENUMNUMLLAVE .)
+
+
+state 25
+
+    (16) chars -> PARA rprima . PARC
+
+    PARC            shift and go to state 29
+
+
+state 26
+
+    (17) chars -> CORA unboxing CORC .
+
+    SYMBOL          reduce using rule 17 (chars -> CORA unboxing CORC .)
+    LLAVENUMLLAVE   reduce using rule 17 (chars -> CORA unboxing CORC .)
+    LLAVENUMNUMLLAVE reduce using rule 17 (chars -> CORA unboxing CORC .)
+    DE              reduce using rule 17 (chars -> CORA unboxing CORC .)
+    DOBLEV          reduce using rule 17 (chars -> CORA unboxing CORC .)
+    PARA            reduce using rule 17 (chars -> CORA unboxing CORC .)
+    CORA            reduce using rule 17 (chars -> CORA unboxing CORC .)
+    NUM             reduce using rule 17 (chars -> CORA unboxing CORC .)
+    CHAR            reduce using rule 17 (chars -> CORA unboxing CORC .)
+    GUION           reduce using rule 17 (chars -> CORA unboxing CORC .)
+    RESERVADO       reduce using rule 17 (chars -> CORA unboxing CORC .)
+    UNION           reduce using rule 17 (chars -> CORA unboxing CORC .)
+    $end            reduce using rule 17 (chars -> CORA unboxing CORC .)
+    PARC            reduce using rule 17 (chars -> CORA unboxing CORC .)
+
+
+state 27
+
+    (19) unboxing -> valor unboxing .
+
+    CORC            reduce using rule 19 (unboxing -> valor unboxing .)
+
+
+state 28
+
+    (4) rgenerador -> rgenerador UNION aconcatados .
+    (7) aconcatados -> aconcatados . balores
+    (8) balores -> . chars sym
+    (9) balores -> . chars
+    (13) chars -> . DE
+    (14) chars -> . DOBLEV
+    (15) chars -> . valor
+    (16) chars -> . PARA rprima PARC
+    (17) chars -> . CORA unboxing CORC
+    (20) valor -> . NUM
+    (21) valor -> . CHAR
+    (22) valor -> . GUION
+    (23) valor -> . RESERVADO
+
+    UNION           reduce using rule 4 (rgenerador -> rgenerador UNION aconcatados .)
+    $end            reduce using rule 4 (rgenerador -> rgenerador UNION aconcatados .)
+    PARC            reduce using rule 4 (rgenerador -> rgenerador UNION aconcatados .)
+    DE              shift and go to state 7
+    DOBLEV          shift and go to state 8
+    PARA            shift and go to state 10
+    CORA            shift and go to state 20
+    NUM             shift and go to state 11
+    CHAR            shift and go to state 12
+    GUION           shift and go to state 13
+    RESERVADO       shift and go to state 14
+
+    balores                        shift and go to state 19
+    chars                          shift and go to state 6
+    valor                          shift and go to state 9
+
+state 29
+
+    (16) chars -> PARA rprima PARC .
+
+    SYMBOL          reduce using rule 16 (chars -> PARA rprima PARC .)
+    LLAVENUMLLAVE   reduce using rule 16 (chars -> PARA rprima PARC .)
+    LLAVENUMNUMLLAVE reduce using rule 16 (chars -> PARA rprima PARC .)
+    DE              reduce using rule 16 (chars -> PARA rprima PARC .)
+    DOBLEV          reduce using rule 16 (chars -> PARA rprima PARC .)
+    PARA            reduce using rule 16 (chars -> PARA rprima PARC .)
+    CORA            reduce using rule 16 (chars -> PARA rprima PARC .)
+    NUM             reduce using rule 16 (chars -> PARA rprima PARC .)
+    CHAR            reduce using rule 16 (chars -> PARA rprima PARC .)
+    GUION           reduce using rule 16 (chars -> PARA rprima PARC .)
+    RESERVADO       reduce using rule 16 (chars -> PARA rprima PARC .)
+    UNION           reduce using rule 16 (chars -> PARA rprima PARC .)
+    $end            reduce using rule 16 (chars -> PARA rprima PARC .)
+    PARC            reduce using rule 16 (chars -> PARA rprima PARC .)
+
